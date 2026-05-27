@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/dashboard/Sidebar'
 import DashHeader from '../components/dashboard/DashHeader'
-import Dashboard from '../pages/Dashboard/dashboard'
+import Dashboard from '../pages/dashboard'
 
 const DashboardLayout = () => {
   return (
