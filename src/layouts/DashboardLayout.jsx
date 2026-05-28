@@ -1,6 +1,6 @@
 import React from 'react'
-import Sidebar from '../components/dashboard/Sidebar'
-import DashHeader from '../components/dashboard/DashHeader'
+import Sidebar from '../components/dashboard/common/Sidebar'
+import DashHeader from '../components/dashboard/common/DashHeader'
 import Dashboard from '../pages/dashboard'
 
 const DashboardLayout = () => {
@@ -10,9 +10,7 @@ const DashboardLayout = () => {
    <Sidebar />
    <div className = "flex flex-col flex-grow ">
    <DashHeader />
-   <main>
    <Dashboard />
-   </main>
 
    </div>
    </div>

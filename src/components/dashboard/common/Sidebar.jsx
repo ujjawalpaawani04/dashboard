@@ -1,10 +1,10 @@
 import React from 'react'
-import colonyLogo from "../../assets/images/dashboard/colony-logo.png"
-import dashboardIcon from "../../assets/images/dashboard/dashboard-icon.png"
+import colonyLogo from "../../../assets/images/dashboard/colony-logo.png"
+import dashboardIcon from "../../../assets/images/dashboard/dashboard-icon.png"
 
 const Sidebar = () => {
   return (
-   <aside className="flex flex-col h-[100vh] w-[260px] bg-[#0f1729]">
+   <aside className="flex flex-col  w-[260px] bg-[#0f1729]">
     <div className ="flex gap-[12px] items-center p-[20px]">
         <div className ="flex justify-center items-center w-[38px] h-[38px] border border-gray-600 border rounded-[10px] bg-gradient-to-r from-[#6366F1] to-[#3B82F6]"><img src={colonyLogo} alt="Colony-Logo" className = "w-[20px] h-[20px] object-contain"/></div>
         <div className ="content-center">
@@ -16,7 +16,7 @@ const Sidebar = () => {
     {/* Main Menu */}
     <div className ="pt-4 px-3">
         <span className ="text-[#475569] font-semibold text-[10px]">MAIN MENU</span>
-        <div className = "flex flex-col gy-[2px] mt-1">
+        <div className = "flex flex-col gap-[8px] mt-1">
 
             {/* Dashboard Item */}
             <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg  bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
@@ -31,7 +31,7 @@ const Sidebar = () => {
             </div>
 
             {/* Residents Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Residents</h3>
@@ -43,7 +43,7 @@ const Sidebar = () => {
             </div>
 
             {/* Add Resident */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Add Resident</h3>
@@ -52,7 +52,7 @@ const Sidebar = () => {
             </div>
 
             {/* Families Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Families</h3>
@@ -61,7 +61,7 @@ const Sidebar = () => {
             </div>
 
             {/* Galleries */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Gallaries</h3>
@@ -78,7 +78,7 @@ const Sidebar = () => {
         <div className = "flex flex-col gy-[2px] mt-1">
 
             {/* Notices Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg  ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg  hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Notices</h3>
@@ -91,7 +91,7 @@ const Sidebar = () => {
 
 
             {/* Events Resident */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Events</h3>
@@ -100,7 +100,7 @@ const Sidebar = () => {
             </div>
             
             {/* Complaints Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Complaints</h3>
@@ -112,7 +112,7 @@ const Sidebar = () => {
             </div>
 
             {/* Payments Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Payments</h3>
@@ -121,7 +121,7 @@ const Sidebar = () => {
             </div>
 
             {/* Settings */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg ">
+            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
                <div className ="flex gap-[10px] items-center">
                  <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">Settings</h3>

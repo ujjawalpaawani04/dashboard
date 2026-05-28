@@ -1,5 +1,5 @@
 import React from 'react'
-import bellIcon from "../../assets/images/dashboard/Bell.png"
+import bellIcon from "../../../assets/images/dashboard/Bell.png"
 
 const DashHeader = () => {
   return (
