@@ -1,18 +1,39 @@
 
 import React from 'react'
+import {useState} from "react"
 import eye from "../../../assets/images/dashboard/Eye.png"
 import pen from "../../../assets/images/dashboard/Pen.png"
 import trash from "../../../assets/images/dashboard/Trash-2.png"
-
 import Card from '../../../components/dashboard/home/Card'
 
 const Resident = () => {
+       const [page, setPage] = useState(1);
+      const itemsPerPage = 8;
+      const indexStart = (page - 1 ) * itemsPerPage;
 
-  const ResidentInfo = [{name: "Amit Mehta", sortName : "AM", houseNo: "A-101", phone: "123-456-7890", family: "4", status: "Active"},
-        {name: "Suniota Joshi", sortName : "SJ", houseNo: "A-101", phone: "123-456-7890", family: "2", status: "Inactive"},
-        {name: "Priya Sharma", sortName : "PS", houseNo: "A-101", phone: "123-456-7890", family: "3", status: "Pending"},
-          {name: "Ujjawal Dhiman", sortName : "UD", houseNo: "A-101", phone: "123-456-7890", family: "10", status: "Active"}
-  ]
+  const ResidentInfo =[
+  { name: "Amit Mehta", sortName: "AM", houseNo: "A-101", phone: "123-456-7890", family: "4", status: "Active" },
+  { name: "Sunita Joshi", sortName: "SJ", houseNo: "B-203", phone: "234-567-8901", family: "2", status: "Inactive" },
+  { name: "Priya Sharma", sortName: "PS", houseNo: "C-305", phone: "345-678-9012", family: "3", status: "Pending" },
+  { name: "Ujjawal Dhiman", sortName: "UD", houseNo: "D-110", phone: "456-789-0123", family: "5", status: "Active" },
+  { name: "Rohit Verma", sortName: "RV", houseNo: "E-402", phone: "567-890-1234", family: "6", status: "Active" },
+  { name: "Neha Kapoor", sortName: "NK", houseNo: "F-215", phone: "678-901-2345", family: "2", status: "Inactive" },
+  { name: "Karan Malhotra", sortName: "KM", houseNo: "G-118", phone: "789-012-3456", family: "4", status: "Pending" },
+  { name: "Anjali Singh", sortName: "AS", houseNo: "H-320", phone: "890-123-4567", family: "3", status: "Active" },
+  { name: "Vikas Yadav", sortName: "VY", houseNo: "I-225", phone: "901-234-5678", family: "7", status: "Inactive" },
+  { name: "Pooja Mishra", sortName: "PM", houseNo: "J-410", phone: "112-233-4455", family: "5", status: "Pending" },
+  { name: "Rahul Chauhan", sortName: "RC", houseNo: "K-109", phone: "223-344-5566", family: "2", status: "Active" },
+  { name: "Sneha Patil", sortName: "SP", houseNo: "L-507", phone: "334-455-6677", family: "4", status: "Inactive" },
+  { name: "Arjun Nair", sortName: "AN", houseNo: "M-611", phone: "445-566-7788", family: "6", status: "Pending" },
+  { name: "Meera Iyer", sortName: "MI", houseNo: "N-208", phone: "556-677-8899", family: "3", status: "Active" },
+  { name: "Dev Khanna", sortName: "DK", houseNo: "O-701", phone: "667-788-9900", family: "8", status: "Inactive" },
+  { name: "Riya Desai", sortName: "RD", houseNo: "P-315", phone: "778-899-0011", family: "1", status: "Pending" },
+  { name: "Harsh Gupta", sortName: "HG", houseNo: "Q-420", phone: "889-900-1122", family: "5", status: "Active" },
+  { name: "Tanya Arora", sortName: "TA", houseNo: "R-512", phone: "990-011-2233", family: "4", status: "Inactive" }
+]
+
+      const currentData = ResidentInfo.slice(indexStart, indexStart + itemsPerPage);
+      const totalPages  = Math.ceil(ResidentInfo.length /itemsPerPage );
   return (
     <section className = "mt-[18px]">
         <div className="grid gap-6 xl:grid-cols-[3fr_1fr]">
@@ -46,7 +67,7 @@ const Resident = () => {
               </thead>
               <tbody className="divide-y divide-[#E2E8F0]">
                
-               {ResidentInfo.map((element, index)=>{
+               {currentData.map((element, index)=>{
                 let statusClass = "";
                 let sortNameBG  = ""
                 if(element.status === "Active"){
@@ -92,13 +113,14 @@ const Resident = () => {
           {/* pagination */}
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-[#64748B]">
-            <p>Showing 4 of 248 residents</p>
+            <p>Showing 8 of 248 residents</p>
             <div className="flex items-center gap-2 rounded-full bg-[#F8FAFC] p-2">
-              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm">‹</button>
-              <button className="h-9 w-9 rounded-full bg-[#3B82F6] text-white">1</button>
-              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm">2</button>
-              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm">3</button>
-              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm">›</button>
+              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm" onClick={() => setPage(page - 1)}>‹</button>
+             {Array.from({length : totalPages}, (_, index)=>  <button className="h-9 w-9 rounded-full bg-[#3B82F6] text-white" onClick={() => setPage(index + 1)}>
+                {index + 1}
+              </button>
+             )}
+              <button className="h-9 w-9 rounded-full bg-white text-[#334155] shadow-sm" onClick={() => setPage(page + 1)}>›</button>
             </div>
           </div>
         </div>
