@@ -1,6 +1,7 @@
 
 import './App.css'
-import DashboardLayout from './layouts/DashboardLayout'
+import AppRouter from './Router/AppRouter'
+
 
 
 
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <>
-  <DashboardLayout />
+ <AppRouter />
     </>
   )
 }
