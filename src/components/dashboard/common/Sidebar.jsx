@@ -2,6 +2,40 @@ import React from 'react'
 import colonyLogo from "../../../assets/images/dashboard/colony-logo.png"
 import dashboardIcon from "../../../assets/images/dashboard/dashboard-icon.png"
 
+const mainMenu = [{
+  img : colonyLogo,
+  title : "Dashboard",
+  notification : "New"
+},{
+  img : colonyLogo,
+  title : "Residents",
+  notification : "248"
+},{
+  img : colonyLogo,
+  title : "Add Resident",
+  notification : null
+},{
+  img : colonyLogo,
+  title : "Families",
+  notification : null
+},{
+  img : colonyLogo,
+  title : "Galleries",
+  notification : null
+}]
+
+const management = [{img : colonyLogo,
+  title : "Notices",
+  notification : null},{img : colonyLogo,
+  title : "Events",
+  notification : null},{img : colonyLogo,
+  title : "Complaints",
+  notification : null},{img : colonyLogo,
+  title : "Payments",
+  notification : null},{img : colonyLogo,
+  title : "Settings",
+  notification : null}]
+
 const Sidebar = () => {
   return (
    <aside className="flex flex-col  w-[260px] bg-[#0f1729]">
@@ -17,57 +51,20 @@ const Sidebar = () => {
     <div className ="pt-4 px-3">
         <span className ="text-[#475569] font-semibold text-[10px]">MAIN MENU</span>
         <div className = "flex flex-col gap-[8px] mt-1">
-
-            {/* Dashboard Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg  bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
+       {mainMenu.map((element, index)=>{
+        return <div className ={`flex justify-between items-center h-[40px] px-3  rounded-lg  ${index === 0 ? 'bg-gradient-to-r from-[#6366F1] to-[#3B82F6]' : 'hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]'}`}>
                <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Dashboard</h3>
+                 <img src = {element.img} alt= {element.title} className = 'w-[16px] h-[16px] object-contain'/>
+                <h3 className ="text-[13px] text-white">{element.title}</h3>
                 </div>
           
-          <div className="inline-flex items-center justify-center rounded-full bg-white px-2 py-1 ">
-              <span className="text-[9px] text-[#3B82F6] font-bold leading-[10.8px]">New</span>
-          </div>
+        {
+          element.notification ? <div className="inline-flex items-center justify-center rounded-full bg-white px-2 py-1 ">
+              <span className="text-[9px] text-[#3B82F6] font-bold leading-[10.8px]">{element.notification}</span>
+          </div> : ""
+        }
             </div>
-
-            {/* Residents Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Residents</h3>
-                </div>
-          
-          <div className="inline-flex items-center justify-center rounded-full bg-[#1E293B] px-2 py-1 ">
-              <span className="text-[9px] text-[#64748B] font-bold leading-[10.8px]">248</span>
-          </div>
-            </div>
-
-            {/* Add Resident */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Add Resident</h3>
-                </div>
-        
-            </div>
-
-            {/* Families Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Families</h3>
-                </div>
-        
-            </div>
-
-            {/* Galleries */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Gallaries</h3>
-                </div>
-        
-            </div>
+       })}
 
         </div>
     </div>
@@ -75,59 +72,39 @@ const Sidebar = () => {
     {/* Management*/}
     <div className ="pt-4 px-3">
         <span className ="text-[#475569] font-semibold text-[10px]">MANAGEMENT</span>
-        <div className = "flex flex-col gy-[2px] mt-1">
+        <div className = "flex flex-col gap-[8px] mt-1">
+          {management.map((element, index) => {
+  return (
+    <div
+      key={index}
+      className="flex justify-between items-center h-[40px] px-3 rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]"
+    >
+      <div className="flex gap-[10px] items-center">
+        <img
+          src={element.img}
+          alt="Dashboard-icon"
+          className="w-[16px] h-[16px] object-contain"
+        />
 
-            {/* Notices Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg  hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Notices</h3>
-                </div>
-          
-          <div className=" bg-[#F59E0B] w-[8px] h-[8px] rounded-full">
-             
-          </div>
-            </div>
+        <h3 className="text-[13px] text-white">
+          {element.title}
+        </h3>
+      </div>
 
+      {/* Conditional Rendering */}
+      {element.title === "Notices" ? (
+        <div className="bg-[#F59E0B] w-[8px] h-[8px] rounded-full"></div>
+      ) : element.title === "Complaints" ? (
+        <div className="inline-flex items-center justify-center rounded-full bg-[#EF4444] px-2 py-1">
+          <span className="text-[9px] text-white font-bold leading-[10.8px]">
+            12
+          </span>
+        </div>
+      ) : null}
+    </div>
+  );
+})}
 
-            {/* Events Resident */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Events</h3>
-                </div>
-        
-            </div>
-            
-            {/* Complaints Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Complaints</h3>
-                </div>
-          
-          <div className="inline-flex items-center justify-center rounded-full bg-[#EF4444] px-2 py-1 ">
-              <span className="text-[9px] text-[#fff] font-bold leading-[10.8px]">12</span>
-          </div>
-            </div>
-
-            {/* Payments Item */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Payments</h3>
-                </div>
-        
-            </div>
-
-            {/* Settings */}
-            <div className ="flex justify-between items-center h-[40px] px-3  rounded-lg hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]">
-               <div className ="flex gap-[10px] items-center">
-                 <img src = {dashboardIcon} alt= "Dashboard-icon" className = 'w-[16px] h-[16px] object-contain'/>
-                <h3 className ="text-[13px] text-white">Settings</h3>
-                </div>
-        
-            </div>
 
         </div>
     </div>

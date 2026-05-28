@@ -7,9 +7,17 @@ import trash from "../../../assets/images/dashboard/Trash-2.png"
 import Card from '../../../components/dashboard/home/Card'
 
 const Resident = () => {
+
+  const ResidentInfo = [{name: "Amit Mehta", sortName : "AM", houseNo: "A-101", phone: "123-456-7890", family: "4", status: "Active"},
+        {name: "Suniota Joshi", sortName : "SJ", houseNo: "A-101", phone: "123-456-7890", family: "2", status: "Inactive"},
+        {name: "Priya Sharma", sortName : "PS", houseNo: "A-101", phone: "123-456-7890", family: "3", status: "Pending"},
+          {name: "Ujjawal Dhiman", sortName : "UD", houseNo: "A-101", phone: "123-456-7890", family: "10", status: "Active"}
+  ]
   return (
     <section className = "mt-[18px]">
         <div className="grid gap-6 xl:grid-cols-[3fr_1fr]">
+
+          {/* left-column */}
         <div className="bg-white rounded-[28px] p-6 shadow-[0px_12px_50px_rgba(7,74,193,0.08)]">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
             <div>
@@ -38,21 +46,34 @@ const Resident = () => {
               </thead>
               <tbody className="divide-y divide-[#E2E8F0]">
                
-                  <tr  className="">
+               {ResidentInfo.map((element, index)=>{
+                let statusClass = "";
+                let sortNameBG  = ""
+                if(element.status === "Active"){
+                  statusClass = "text-[#16A34A] bg-[#DCFCE7]";
+                  sortNameBG = "bg-gradient-to-r from-[#10B981] to-[#047857]";
+                }else if(element.status === "Inactive"){
+                  statusClass = "text-[#D97706] bg-[#FEF3C7]";
+                  sortNameBG = "bg-gradient-to-r from-[#F59E0B] to-[#F97316]";
+                }else if(element.status === "Pending"){
+                  statusClass = "text-[#DC2626] bg-[#FEE2E2]";
+                  sortNameBG = "bg-gradient-to-r from-[#EF4444] to-[#F87171]";
+                }
+                return  <tr  className="">
                     <td className="py-4 px-3">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-r from-[#6366F1] to-[#3B82F6] text-sm font-semibold text-[#ffffff]">AM</div>
+                        <div className={`flex h-10 w-10 items-center justify-center rounded-full ${sortNameBG} text-sm font-semibold text-[#ffffff]`}>{element.sortName}</div>
                         <div>
-                          <p className="font-semibold text-[#0F172A]">Amit Mehta</p>
+                          <p className="font-semibold text-[#0F172A]">{element.name}</p>
                           <p className="text-xs text-[#94A3B8]"><bdi>owner</bdi></p>
                         </div>
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-[#475569]">A-101</td>
-                    <td className="py-4 px-3 text-[#475569]">123-456-7890</td>
-                    <td className="py-4 px-3 text-[#475569]">👪&nbsp;4</td>
+                    <td className="py-4 px-3 text-[#475569]">{element.houseNo}</td>
+                    <td className="py-4 px-3 text-[#475569]">{element.phone}</td>
+                    <td className="py-4 px-3 text-[#475569]">👪&nbsp;{element.family}</td>
                     <td className="py-4 px-3">
-                      <span className="inline-flex rounded-full px-3 py-1 text-[11px] font-semibold text-[#16A34A] bg-[#DCFCE7]">Active</span>
+                      <span className={`inline-flex rounded-full px-3 py-1 text-[11px] font-semibold ${statusClass}`}>{element.status}</span>
                     </td>
                     <td className="py-4 px-3 flex items-center gap-2">
                       <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#EFF6FF]"><img src={eye} alt="View" /></button>
@@ -60,56 +81,15 @@ const Resident = () => {
                       <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#FFF1F2]"><img src={trash} alt="Delete" /></button>
                     </td>
                   </tr>
+               })}
+        
 
-                  <tr  className="bg-[#F8FAFC]">
-                    <td className="py-4 px-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-r from-[#F59E0B] to-[#D97706] text-sm font-semibold text-[#ffffff]">SJ</div>
-                        <div>
-                          <p className="font-semibold text-[#0F172A]">Suniota Joshi</p>
-                          <p className="text-xs text-[#94A3B8]"><bdi>Tenant</bdi></p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="py-4 px-3 text-[#475569]">A-101</td>
-                    <td className="py-4 px-3 text-[#475569]">123-456-7890</td>
-                    <td className="py-4 px-3 text-[#475569]">👪&nbsp;4</td>
-                    <td className="py-4 px-3">
-                      <span className="inline-flex rounded-full px-3 py-1 text-[11px] font-semibold text-[#D97706] bg-[#FEF3C7]">Inactive</span>
-                    </td>
-                    <td className="py-4 px-3 flex items-center gap-2">
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#EFF6FF]"><img src={eye} alt="View" /></button>
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#F0FDF4]"><img src={pen} alt="Edit" /></button>
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#FFF1F2]"><img src={trash} alt="Delete" /></button>
-                    </td>
-                  </tr>
-            
-                  <tr  className="">
-                    <td className="py-4 px-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-linear-to-r from-[#10B981] to-[#047857] text-sm font-semibold text-[#ffffff]">PS</div>
-                        <div>
-                          <p className="font-semibold text-[#0F172A]">Priya Sharma</p>
-                          <p className="text-xs text-[#94A3B8]"><bdi>Tenant</bdi></p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="py-4 px-3 text-[#475569]">A-101</td>
-                    <td className="py-4 px-3 text-[#475569]">123-456-7890</td>
-                    <td className="py-4 px-3 text-[#475569]">👪&nbsp;4</td>
-                    <td className="py-4 px-3">
-                      <span className="inline-flex rounded-full px-3 py-1 text-[11px] font-semibold text-[#DC2626] bg-[#FEE2E2]">Pending</span>
-                    </td>
-                    <td className="py-4 px-3 flex items-center gap-2">
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#EFF6FF]"><img src={eye} alt="View" /></button>
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#F0FDF4]"><img src={pen} alt="Edit" /></button>
-                      <button className="rounded-[8px] border border-[#E2E8F0] px-2 py-2 text-[11px] text-[#475569] bg-[#FFF1F2]"><img src={trash} alt="Delete" /></button>
-                    </td>
-                  </tr>
-            
+
               </tbody>
             </table>
           </div>
+
+          {/* pagination */}
 
           <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-sm text-[#64748B]">
             <p>Showing 4 of 248 residents</p>
@@ -123,7 +103,11 @@ const Resident = () => {
           </div>
         </div>
 
+       
+            {/* Right-column */}
         <div className="space-y-6">
+
+           {/* Recent-activity */}
           <div className="rounded-[28px] bg-white p-6 shadow-[0px_12px_50px_rgba(7,74,193,0.08)]">
             <div className="flex items-center justify-between gap-4">
               <div>
@@ -132,6 +116,8 @@ const Resident = () => {
               </div>
               <button className="rounded-xl border border-[#E2E8F0] px-4 py-2 text-sm text-[#0F172A]">Refresh</button>
             </div>
+
+
 
             <div className="mt-6 flex flex-col">
               {[
@@ -154,6 +140,8 @@ const Resident = () => {
             </div>
           </div>
 
+
+{/* Occupancy Overview */}
           <div className="rounded-[28px] bg-white p-6 shadow-[0px_12px_50px_rgba(7,74,193,0.08)]">
             <div>
               <h3 className="text-[17px] font-bold text-[#0F172A]">Occupancy Overview</h3>
