@@ -3,8 +3,7 @@ import React from 'react'
 import eye from "../../../assets/images/dashboard/Eye.png"
 import pen from "../../../assets/images/dashboard/Pen.png"
 import trash from "../../../assets/images/dashboard/Trash-2.png"
-import Resident from '../../../components/dashboard/home/Resident'
-import Card from '../../../components/dashboard/home/Card'
+
 
 const cards = [{title : "Total Residents", NoOfResidents : 248, increament : "+12%", CompareTime : "vs last month", img : pen, color : "from-[#6366F1] to-[#3B82F6]"},
 {title : "New Requests", NoOfResidents : 98, increament : "+8%", CompareTime : "since last week", img : eye, color : "from-[#8B5CF6] to-[#6D28D9]"},
@@ -16,7 +15,7 @@ const card = () => {
   return (
     <>
           {/* card-section */}
-          <section>
+         
           <div className="flex flex-wrap gap-4">
             {cards.map((element, index)=>{
               return  <div className={`bg-linear-to-r ${element.color} p-5 rounded-3xl min-w-55 flex-1 text-white shadow-lg`}>
@@ -35,7 +34,7 @@ const card = () => {
             })}
 
           </div>
-          </section>
+
           </>
   )
 }
