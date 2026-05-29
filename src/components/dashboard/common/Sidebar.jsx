@@ -38,7 +38,7 @@ const management = [{img : colonyLogo,
 
 const Sidebar = () => {
   return (
-   <aside className="flex flex-col  w-[260px] bg-[#0f1729]">
+   <aside className="flex flex-col  w-[260px] bg-[#0f1729] min-h-screen">
     <div className ="flex gap-[12px] items-center p-[20px]">
         <div className ="flex justify-center items-center w-[38px] h-[38px] border border-gray-600 border rounded-[10px] bg-gradient-to-r from-[#6366F1] to-[#3B82F6]"><img src={colonyLogo} alt="Colony-Logo" className = "w-[20px] h-[20px] object-contain"/></div>
         <div className ="content-center">

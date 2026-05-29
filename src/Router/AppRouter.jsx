@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Dashboard from "../pages/dashboard";
 import Residents from '../pages/dashboard/Residents';
+import AddResident from '../pages/dashboard/AddResident';
 
 const AppRouter = () => {
   const router = createBrowserRouter([
@@ -17,6 +18,11 @@ const AppRouter = () => {
         {
           path : "residents",
             element : <Residents />
+        },
+        {
+          path : "AddResident",
+          element : <AddResident />
+
         }
       ]
     }
