@@ -1,6 +1,7 @@
 import React from 'react'
 import bellIcon from "../../../assets/images/dashboard/Bell.png"
 
+
 const DashHeader = () => {
   return (
   <header className  ="flex justify-between items-center px-6 h-[68px] w-full]  bg-white shadow-[0px_2px_8px_0px_rgba(99,99,99,0.2)]">

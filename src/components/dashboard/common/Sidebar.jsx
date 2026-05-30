@@ -1,27 +1,33 @@
 import React from 'react'
 import colonyLogo from "../../../assets/images/dashboard/colony-logo.png"
 import dashboardIcon from "../../../assets/images/dashboard/dashboard-icon.png"
+import { Link } from 'react-router'
 
 const mainMenu = [{
   img : colonyLogo,
   title : "Dashboard",
-  notification : "New"
+  notification : "New",
+  navigate : "/dashboard"
 },{
   img : colonyLogo,
   title : "Residents",
-  notification : "248"
+  notification : "248",
+   navigate : "/dashboard/Residents"
 },{
   img : colonyLogo,
   title : "Add Resident",
-  notification : null
+  notification : null,
+   navigate : "/dashboard/AddResident"
 },{
   img : colonyLogo,
   title : "Families",
-  notification : null
+  notification : null,
+   navigate : "/#"
 },{
   img : colonyLogo,
   title : "Galleries",
-  notification : null
+  notification : null,
+   navigate : "/#"
 }]
 
 const management = [{img : colonyLogo,
@@ -52,18 +58,21 @@ const Sidebar = () => {
         <span className ="text-[#475569] font-semibold text-[10px]">MAIN MENU</span>
         <div className = "flex flex-col gap-[8px] mt-1">
        {mainMenu.map((element, index)=>{
-        return <div className ={`flex justify-between items-center h-[40px] px-3  rounded-lg  ${index === 0 ? 'bg-gradient-to-r from-[#6366F1] to-[#3B82F6]' : 'hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]'}`}>
+        return      <Link to={element.navigate}>
+        <div className ={`flex justify-between items-center h-[40px] px-3  rounded-lg  ${index === 0 ? 'bg-gradient-to-r from-[#6366F1] to-[#3B82F6]' : 'hover:bg-gradient-to-r from-[#6366F1] to-[#3B82F6]'}`}>
+     
                <div className ="flex gap-[10px] items-center">
                  <img src = {element.img} alt= {element.title} className = 'w-[16px] h-[16px] object-contain'/>
                 <h3 className ="text-[13px] text-white">{element.title}</h3>
                 </div>
+            
           
         {
           element.notification ? <div className="inline-flex items-center justify-center rounded-full bg-white px-2 py-1 ">
               <span className="text-[9px] text-[#3B82F6] font-bold leading-[10.8px]">{element.notification}</span>
           </div> : ""
         }
-            </div>
+            </div>    </Link>
        })}
 
         </div>

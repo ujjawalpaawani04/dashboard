@@ -1,19 +1,13 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 const PersonalInfo = () => {
-    const b = useForm();
-    console.log(b);
-  // React Hook Form
   const {
     register,
-    handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useFormContext();
 
-  // Submit Function
-  const onSubmit = (data) => {
-    console.log(data);
+ 
 
     // Backend API Example
     /*
@@ -25,10 +19,10 @@ const PersonalInfo = () => {
       body: JSON.stringify(data),
     });
     */
-  };
+  // Submission is handled by the parent form
 
   return (
-    <div className="w-[70%] overflow-hidden rounded-2xl border border-gray-200 bg-white">
+    <div className=" overflow-hidden rounded-2xl border border-gray-200 bg-white">
       
       {/* Header */}
       <div className="flex items-center gap-4 border-b border-gray-200 px-8 py-6">
@@ -38,7 +32,7 @@ const PersonalInfo = () => {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold text-gray-900">
+          <h2 className="text-[15px] leading-[18px] font-semibold text-gray-900">
             Personal Information
           </h2>
 
@@ -49,10 +43,7 @@ const PersonalInfo = () => {
       </div>
 
       {/* Form */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-1 gap-6 p-8 md:grid-cols-2"
-      >
+      <div className="grid grid-cols-1 gap-5 p-6 md:grid-cols-2">
         
         {/* First Name */}
         <div>
@@ -104,7 +95,7 @@ const PersonalInfo = () => {
             Email Address *
           </label>
 
-          <div className="flex h-14 items-center rounded-xl border border-gray-300 px-4">
+          <div className="flex h-14 items-center rounded-xl border border-gray-300 px-4 focus-within:border-indigo-500">
             <span className="mr-3">✉️</span>
 
             <input
@@ -118,6 +109,7 @@ const PersonalInfo = () => {
                   message: "Enter a valid email",
                 },
               })}
+            
             />
           </div>
 
@@ -130,11 +122,11 @@ const PersonalInfo = () => {
 
         {/* Phone */}
         <div>
-          <label className="mb-2 block font-medium text-gray-700">
+          <label className="mb-2 block font-medium text-gray-700 ">
             Phone Number *
           </label>
 
-          <div className="flex h-14 items-center rounded-xl border border-gray-300 px-4">
+          <div className="flex h-14 items-center rounded-xl border border-gray-300 px-4 focus-within:border-indigo-500">
             <span className="mr-3">📞</span>
 
             <span className="mr-2 text-gray-500">+91</span>
@@ -180,15 +172,17 @@ const PersonalInfo = () => {
           </label>
 
           <select
-            className="h-14 w-full rounded-xl border border-gray-300 px-4 text-gray-700 outline-none focus:border-indigo-500"
+            className="h-14 w-full rounded-xl border border-gray-300 px-4 text-gray-700 outline-none focus:border-indigo-500 relative z-2"
             {...register("gender", {
               required: "Please select gender",
             })}
           >
+           
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
+
           </select>
 
           {errors.gender && (
@@ -198,16 +192,7 @@ const PersonalInfo = () => {
           )}
         </div>
 
-        {/* Submit Button */}
-        <div className="md:col-span-2">
-          <button
-            type="submit"
-            className="h-14 rounded-xl bg-indigo-600 px-8 text-white transition hover:bg-indigo-700"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };
